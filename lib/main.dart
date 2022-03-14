@@ -25,10 +25,18 @@ class MyApp extends StatelessWidget {
 
 class QuizPage extends StatefulWidget {
   @override
-  _QuizPageState createState()=> _QuizPageState();
+  _QuizPageState createState() => _QuizPageState();
 }
 
 class _QuizPageState extends State<QuizPage> {
+  List<Icon> ScoreKeeper=[ ] ;
+
+  List<String> question= [
+    'The Cow is a Dangerous Animal',
+    'Tiger is a Domestic Animal',
+    'Bangladesh is a democratic country'
+  ];
+
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -36,19 +44,18 @@ class _QuizPageState extends State<QuizPage> {
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
         Expanded(
-          flex: 5,
+            flex: 5,
             child: Padding(
-          padding: EdgeInsets.all(10.00),
-          child: Center(
-            child: Text('This is where the question text will go',
-                textAlign: TextAlign.center,
-                style: TextStyle(
-                  fontSize: 25.0,
-                  color: Colors.white,
-                )),
-          ),
-        )),
-        
+              padding: EdgeInsets.all(10.00),
+              child: Center(
+                child: Text(question.first,
+                    textAlign: TextAlign.center,
+                    style: TextStyle(
+                      fontSize: 25.0,
+                      color: Colors.white,
+                    )),
+              ),
+            )),
         Expanded(
             child: Padding(
           padding: EdgeInsets.all(15.00),
@@ -66,27 +73,31 @@ class _QuizPageState extends State<QuizPage> {
             onPressed: () {},
           ),
         )),
-
         Expanded(
             child: Padding(
-              padding: EdgeInsets.all(15.00),
-              child: ElevatedButton(
-                style: ElevatedButton.styleFrom(
-                  primary: Colors.red,
-                ),
-                child: Text(
-                  'FALSE',
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 20.00,
-                  ),
-                ),
-                onPressed: () {},
+          padding: EdgeInsets.all(15.00),
+          child: ElevatedButton(
+            style: ElevatedButton.styleFrom(
+              primary: Colors.red,
+            ),
+            child: Text(
+              'FALSE',
+              style: TextStyle(
+                color: Colors.white,
+                fontSize: 20.00,
               ),
-            )),
+            ),
+            onPressed: () {},
+          ),
+        )),
+
+        Row(
+          children: ScoreKeeper,
+
+        )
       ],
     );
 
-  //  throw UnimplementedError();
+    //  throw UnimplementedError();
   }
 }
